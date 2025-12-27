@@ -106,7 +106,7 @@ def load_data():
             # Join overview back for display
             new_df['overview'] = new_df['overview'].apply(lambda x: " ".join(x))
             
-            cv = TfidfVectorizer(max_features=5000, stop_words='english')
+            cv = TfidfVectorizer(max_features=2000, stop_words='english')
             vectors = cv.fit_transform(new_df['tags']).toarray()
             cosine_sim_generated = cosine_similarity(vectors)
             
