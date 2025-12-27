@@ -260,7 +260,23 @@ if st.button('Show Recommendations', type='primary'):
                                     height=500, 
                                     directed=True, 
                                     physics=True, 
-                                    hierarchical=False)
+                                    hierarchical=False,
+                                    # specific physics settings to unclutter and center
+                                    physicsSettings={
+                                        "solver": "forceAtlas2Based",
+                                        "forceAtlas2Based": {
+                                            "gravitationalConstant": -50,
+                                            "springLength": 100,
+                                            "springConstant": 0.08,
+                                            "damping": 0.4,
+                                            "avoidOverlap": 1
+                                        },
+                                        "minVelocity": 0.75,
+                                        "stabilization": {
+                                            "enabled": True,
+                                            "iterations": 1000,
+                                        }
+                                    })
                     
                     return_value = agraph(nodes=nodes, 
                                           edges=edges, 
