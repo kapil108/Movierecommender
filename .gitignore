@@ -1,0 +1,4 @@
+movie_data.pkl
+__pycache__/
+*.bak
+verify_deployment.py
