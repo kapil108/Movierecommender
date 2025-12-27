@@ -1,5 +1,7 @@
 # Movie Recommendation System
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://movierecommender-kkixthuq.streamlit.app/)
+
 This project is a movie recommendation system built with Streamlit and powered by a machine learning model. It recommends movies based on a selected title using cosine similarity and displays movie posters fetched from the TMDB API.
 
 
@@ -33,8 +35,8 @@ In this project, we use cosine similarity to measure the similarity between movi
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/movie-recommendation-system.git
-    cd movie-recommendation-system
+    git clone https://github.com/kapil108/Movierecommender.git
+    cd Movierecommender
     ```
 
 2. Install the required packages:
