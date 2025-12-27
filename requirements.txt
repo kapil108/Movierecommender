@@ -1,5 +1,5 @@
-pandas==2.2.2
-requests==2.32.3
-streamlit==1.35.0
-streamlit-agraph==0.0.45
+pandas
+requests
+streamlit
+streamlit-agraph
 scikit-learn
