@@ -261,8 +261,8 @@ if st.button('Show Recommendations', type='primary'):
                                                font={'align': 'middle', 'color': 'white', 'strokeWidth': 2, 'strokeColor': 'black'}
                                                ))
 
-                    config = Config(width=800, # Wider canvas
-                                    height=600, 
+                    config = Config(width=1100, # Significantly wider
+                                    height=800, # Taller to match
                                     directed=True, 
                                     physics=True, 
                                     hierarchical=False,
@@ -270,9 +270,9 @@ if st.button('Show Recommendations', type='primary'):
                                     physicsSettings={
                                         "solver": "barnesHut",
                                         "barnesHut": {
-                                            "gravitationalConstant": -4000,
-                                            "centralGravity": 0.1, # Reduced gravity to let it expand
-                                            "springLength": 250,   # Longer springs
+                                            "gravitationalConstant": -8000, # Very strong repulsion
+                                            "centralGravity": 0.1,
+                                            "springLength": 350,   # Very long springs
                                             "springConstant": 0.01,
                                             "damping": 0.09,
                                             "avoidOverlap": 1
