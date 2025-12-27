@@ -245,19 +245,24 @@ if st.button('Show Recommendations', type='primary'):
                                           target=row['title'], 
                                           type="STRAIGHT",
                                           strokeWidth=2,
-                                          color="#ff5733"))
+                                          color="#00BFFF")) # Bright Blue
                         
                         # Optional: Inter-movie connections (if they share genre)
-                        # Minimal implementation to avoid clutter:
-                        # Logic: If they share at least 2 genres, link them.
                         main_genres = set(movies[movies['title'] == selected_movie].iloc[0]['genres'])
                         rec_genres = set(row['genres'])
                         common = main_genres.intersection(rec_genres)
                         if common:
-                             edges.append(Edge(source=selected_movie, target=row['title'], label=list(common)[0], color="#BDC3C7"))
+                             # Add font styling for visibility (White text with black border)
+                             genre_label = list(common)[0]
+                             edges.append(Edge(source=selected_movie, 
+                                               target=row['title'], 
+                                               label=genre_label, 
+                                               color="#BDC3C7",
+                                               font={'align': 'middle', 'color': 'white', 'strokeWidth': 2, 'strokeColor': 'black'}
+                                               ))
 
-                    config = Config(width=700, 
-                                    height=500, 
+                    config = Config(width=800, # Wider canvas
+                                    height=600, 
                                     directed=True, 
                                     physics=True, 
                                     hierarchical=False,
@@ -266,17 +271,13 @@ if st.button('Show Recommendations', type='primary'):
                                         "solver": "barnesHut",
                                         "barnesHut": {
                                             "gravitationalConstant": -4000,
-                                            "centralGravity": 0.3,
-                                            "springLength": 200,
-                                            "springConstant": 0.04,
+                                            "centralGravity": 0.1, # Reduced gravity to let it expand
+                                            "springLength": 250,   # Longer springs
+                                            "springConstant": 0.01,
                                             "damping": 0.09,
                                             "avoidOverlap": 1
                                         },
                                         "minVelocity": 0.75,
-                                        "stabilization": {
-                                            "enabled": True,
-                                            "iterations": 1000,
-                                        }
                                     })
                     
                     return_value = agraph(nodes=nodes, 
