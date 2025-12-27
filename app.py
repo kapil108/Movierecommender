@@ -164,9 +164,18 @@ def get_recommendations(title, cosine_sim=cosine_sim):
 st.title("🍿 Better Movie Recommendations")
 st.markdown("Find your next favorite movie with **advanced filtering**!")
 
-selected_movie = st.selectbox("Type or select a movie you like:", movies['title'].values)
+# Session state initialization
+if 'selected_movie_key' not in st.session_state:
+    st.session_state.selected_movie_key = movies['title'].values[0]
+if 'show_results' not in st.session_state:
+    st.session_state.show_results = False
+
+selected_movie = st.selectbox("Type or select a movie you like:", movies['title'].values, key='selected_movie_key')
 
 if st.button('Show Recommendations', type='primary'):
+    st.session_state.show_results = True
+
+if st.session_state.show_results:
     with st.spinner('Finding the best matches...'):
         recommendations = get_recommendations(selected_movie)
         
@@ -283,3 +292,7 @@ if st.button('Show Recommendations', type='primary'):
                     return_value = agraph(nodes=nodes, 
                                           edges=edges, 
                                           config=config)
+                    
+                    if return_value and return_value != selected_movie:
+                        st.session_state.selected_movie_key = return_value
+                        st.rerun()
