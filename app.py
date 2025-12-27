@@ -55,7 +55,15 @@ def load_data():
                 return L
 
             movies_df = pd.read_csv('tmdb_5000_movies.csv')
-            credits_df = pd.read_csv('tmdb_5000_credits.csv')
+            
+            if os.path.exists('tmdb_5000_credits.csv'):
+                credits_df = pd.read_csv('tmdb_5000_credits.csv')
+            elif os.path.exists('tmdb_5000_credits.zip'):
+                credits_df = pd.read_csv('tmdb_5000_credits.zip') 
+            else:
+                 # Fallback/Error if neither exists
+                 st.error("Critical Error: 'tmdb_5000_credits.csv' or 'tmdb_5000_credits.zip' not found.")
+                 st.stop()
             
             movies_df = movies_df.merge(credits_df, on='title')
             

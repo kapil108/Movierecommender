@@ -1,4 +1,6 @@
 movie_data.pkl
+tmdb_5000_credits.csv
 __pycache__/
 *.bak
 verify_deployment.py
+verify_zip_support.py

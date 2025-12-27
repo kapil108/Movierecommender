@@ -1,23 +1,10 @@
 # Movie Recommendation System
 
 This project is a movie recommendation system built with Streamlit and powered by a machine learning model. It recommends movies based on a selected title using cosine similarity and displays movie posters fetched from the TMDB API.
->YouTube tutorial [HERE](https://youtu.be/i-B_I2DGIAI)
+
 
 >Dataset is [HERE](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
 
->Some files are not available on GitHub due to the large file size. you can get it [HERE](https://huggingface.co/sujoy0011/Movie-Recommendation-System/tree/main)
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Theory of Recommendation Systems](#theory-of-recommendation-systems)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Dataset](#dataset)
-- [Model](#model)
-- [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -37,7 +24,6 @@ A recommendation system is a subclass of information filtering systems that seek
 
 3. **Hybrid Methods**: These methods combine content-based and collaborative filtering to provide more accurate recommendations.
    
-    ![The-recommendation-system-types](https://github.com/user-attachments/assets/b08f4f84-9210-4dfb-9734-860b353a3da7)
 
 ### Cosine Similarity
 
@@ -75,16 +61,18 @@ The dataset used for this project contains information about movies, including t
 
 The model for recommending movies is based on cosine similarity. Cosine similarity is used to measure the similarity between movie titles. The model computes the similarity scores and suggests the top 10 similar movies based on the selected movie title.
 
-## Results
+The system delivers accurate, content-based movie recommendations with a rich, interactive user interface. Key results include:
 
-The system provides the top 10 recommended movies for any selected movie title. It also fetches and displays the posters of these recommended movies using the TMDB API.
+*   **Personalized Recommendations**: Successfully generates Top 10 similar movies based on plot, genre, cast, and crew using Cosine Similarity.
+*   **Advanced Filtering**: Users can refine results by **Genre**, **Year**, and **Rating**, ensuring recommendations match their specific mood.
+*   **Interactive Visualization**: Includes a **Network Graph** view (Streamlit Agraph) to visualize connections between the selected movie and recommendations, offering a novel way to explore relationships.
+*   **Cloud-Optimized}:** Built with an efficient data pipeline that creates the model on-the-fly, allowing for seamless deployment on platforms like Streamlit Cloud without managing massive pre-computed files.
 
 ![Screenshot 2024-07-12 103743](https://github.com/user-attachments/assets/fbc357a1-a6e6-472a-892b-95fe96767743)
+*(Note: You can update this screenshot to show the new UI with tabs and filters)*
 
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
