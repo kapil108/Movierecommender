@@ -263,12 +263,13 @@ if st.button('Show Recommendations', type='primary'):
                                     hierarchical=False,
                                     # specific physics settings to unclutter and center
                                     physicsSettings={
-                                        "solver": "forceAtlas2Based",
-                                        "forceAtlas2Based": {
-                                            "gravitationalConstant": -50,
-                                            "springLength": 100,
-                                            "springConstant": 0.08,
-                                            "damping": 0.4,
+                                        "solver": "barnesHut",
+                                        "barnesHut": {
+                                            "gravitationalConstant": -4000,
+                                            "centralGravity": 0.3,
+                                            "springLength": 200,
+                                            "springConstant": 0.04,
+                                            "damping": 0.09,
                                             "avoidOverlap": 1
                                         },
                                         "minVelocity": 0.75,
